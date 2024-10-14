@@ -1,0 +1,20 @@
+services:
+  jenkins:
+    container_name: twc
+    image: nginx:latest
+    restart: unless-stopped
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./build:/usr/share/nginx/html
+    networks:
+      - home-cloud-network
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.twc.rule=Host(`twc.sreekar-cloud.duckdns.org`)"
+      - "traefik.http.routers.twc.entrypoints=websecure"
+      - "traefik.http.routers.twc.tls.certresolver=myresolver"
+      - "traefik.http.services.twc.loadbalancer.server.port=80"
+
+networks:
+  home-cloud-network:
+    external: true
