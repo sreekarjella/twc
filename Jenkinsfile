@@ -1,10 +1,15 @@
 pipeline {
     agent any
 
+    environment {
+        NODE_HOME = '/usr/local/bin/node'
+        PATH = "${NODE_HOME}:$PATH"
+    }
+
     stages {
         stage('Clone repository') {
             steps {
-                git 'git@github.com:sreekarjella/twc.git'
+                git branch: 'main', credentialsId: 'github_ssh', url: 'git@github.com:sreekarjella/twc.git'
             }
         }
 
