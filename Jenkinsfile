@@ -27,7 +27,7 @@ pipeline {
 
         stage('Deploy to Nginx') {
             steps {
-                sh 'docker cp build/. nginx-container:/usr/share/nginx/html'
+                sh 'docker cp build/. twc:/usr/share/nginx/html'
             }
         }
     }
