@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Clone repository') {
             steps {
-                git branch: 'main', credentialsId: 'github_ssh', url: 'git@github.com:sreekarjella/twc.git'
+                git branch: 'main', url: 'git@github.com:sreekarjella/twc.git'
             }
         }
 
