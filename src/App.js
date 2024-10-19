@@ -9,7 +9,7 @@ function App() {
       <Helmet>
         <title>TWC Architects</title>
       </Helmet>
-      <h1>Welcome to The White walls company</h1>
+      <h1>Welcome to The White walls company.</h1>
     </div>
       {}
     </div>
