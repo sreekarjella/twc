@@ -1,17 +1,16 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Helmet } from "react-helmet";
-import './App.css';
+import Header from './header/Header';
+import Home from './home/Home';
 
 function App() {
   return (
-    <div className="App">
-
-<div>
+    <div>
       <Helmet>
-        <title>TWC Architects</title>
+          <title>TWC</title>
       </Helmet>
-      <h1>Welcome to The White walls company..</h1>
-    </div>
-      {}
+      <Header/>
+      <Home/>
     </div>
   );
 }
