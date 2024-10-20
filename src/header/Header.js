@@ -9,15 +9,19 @@ function Header() {
     setIsOpen((prevState) => !prevState);
   };
 
+  const navigateHome = () => {
+    window.location.href='/'
+  }
+
   return (
     <header className="header">
-      <div className="logo">
+      <div className="logo" onClick={navigateHome}>
         <img src="/images/logo.png" alt="TWC Logo" />
-        <span>TWC Architects</span>
+        <h2><span>TWC Architects</span></h2>
       </div>
 
       <nav className="nav-links">
-        <Link to="/">Architecture</Link>
+        <Link to="/architecture">Architecture</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
       </nav>
@@ -38,7 +42,7 @@ function Header() {
       {/* Fullscreen overlay menu for smaller devices */}
       <div className={`overlay ${isOpen ? "open" : ""}`}>
         <nav className="overlay-menu">
-          <Link to="/" onClick={toggleMenu}>Architecture</Link>
+          <Link to="/architecture" onClick={toggleMenu}>Architecture</Link>
           <Link to="/about" onClick={toggleMenu}>About</Link>
           <Link to="/contact" onClick={toggleMenu}>Contact</Link>
         </nav>

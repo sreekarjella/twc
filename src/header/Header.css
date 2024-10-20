@@ -1,9 +1,5 @@
 /* Base Styles */
 .header {
-  position: fixed; /* Keep header fixed at the top */
-  top: 0;
-  left: 0;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,6 +12,7 @@
 .logo {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .logo img {
