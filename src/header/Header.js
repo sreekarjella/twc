@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import './Header.css'; // Importing the styles
+import './Header.css';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prevState) => !prevState);
   };
 
   return (
@@ -15,15 +15,33 @@ function Header() {
         <img src="/images/logo.png" alt="TWC Logo" />
         <span>TWC Architects</span>
       </div>
-      <nav className={`nav-links ${isOpen ? "open" : ""}`}>
+
+      <nav className="nav-links">
         <Link to="/">Architecture</Link>
         <Link to="/about">About</Link>
         <Link to="/contact">Contact</Link>
       </nav>
-      <div className="hamburger" onClick={toggleMenu}>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
+
+      {/* Menu Toggle (Hamburger or Close (X)) */}
+      <div className="menu-toggle">
+        {isOpen ? (
+          <div className="close-icon" onClick={toggleMenu}>X</div> // Make sure the onClick is attached here
+        ) : (
+          <div className="hamburger" onClick={toggleMenu}>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </div>
+        )}
+      </div>
+
+      {/* Fullscreen overlay menu for smaller devices */}
+      <div className={`overlay ${isOpen ? "open" : ""}`}>
+        <nav className="overlay-menu">
+          <Link to="/" onClick={toggleMenu}>Architecture</Link>
+          <Link to="/about" onClick={toggleMenu}>About</Link>
+          <Link to="/contact" onClick={toggleMenu}>Contact</Link>
+        </nav>
       </div>
     </header>
   );
