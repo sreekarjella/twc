@@ -12,7 +12,7 @@ function Header() {
   return (
     <header className="header">
       <div className="logo">
-        <img src="/images/logo.jpg" alt="TWC Logo" />
+        <img src="/images/logo.png" alt="TWC Logo" />
         <span>TWC Architects</span>
       </div>
       <nav className={`nav-links ${isOpen ? "open" : ""}`}>
