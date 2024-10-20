@@ -1,5 +1,68 @@
+/* Base Styles */
 .header {
-    background-color: #ffffff;
-    padding: 10px 20px 0px 20px;
-    color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1% 2%;
+  /* background-color: #333; */
+  color: black;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px; /* Adjust the height of the logo */
+  margin-right: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: black;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
   }
+
+  .nav-links.open {
+    display: block;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}

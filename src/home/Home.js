@@ -1,36 +1,23 @@
-import React, { useState } from "react";
-import { Carousel } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
 import './Home.css'
 
-const carouselImage = [
-    {
-        image: require('./../images/1.png')
-    },
-    {
-        image: require('./../images/2.png')
-    },
-    {
-        image: require('./../images/3.jpg')
-    }
-]
+const images = [
+    'images/1.png',  // Path relative to the public folder
+    'images/2.png',
+    'images/3.jpg',
+];
 
 function Home() {
-    const [index, setIndex] = useState(0);
-    const handleSelect = (selectedIndex, e) => {
-        setIndex(selectedIndex);
-    };
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }, 4000); // Change image every 3 seconds
 
+        return () => clearInterval(interval); // Cleanup interval on unmount
+    }, [images.length]);
     return (
-        <div className="carousel-container">
-            <Carousel activeIndex={index} onSelect={handleSelect} slide={true} fade>
-                {carouselImage.map((slide, i) => {
-                    return(
-                        <Carousel.Item key={i} interval={3000}>
-                            <img src={slide.image} alt="slide" className="carousel-image"></img>
-                        </Carousel.Item>
-                    )
-                })}
-            </Carousel>
+        <div className="centered-div" style={{ backgroundImage: `url(${images[currentImageIndex]})` }}>
         </div>
     );
 }

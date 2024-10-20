@@ -1,15 +1,16 @@
-.carousel-container {
-    width: 100vw; /* Full width of the viewport */
-    height: 100vh; /* Full height of the viewport */
+.centered-div {
+    width: 80vw; /* Adjust the size as needed */
+    height: 80vh; /* Adjust the size as needed */
+    background-size: cover; /* Ensures the background image covers the entire div */
+    background-position: center;
+    background-repeat: no-repeat; /* Prevent image repetition */
+    transition: background-image 2s ease-in-out; /* Smooth transition between images */
+    border-radius: 20px; /* Optional: round the corners */
+}
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0% 20%; /* Adjust padding as needed */
-    box-sizing: border-box; /* Ensure padding doesn't affect width/height */
-}
-
-.carousel-image {
-    max-width: calc(100vw - 40px); /* Ensure image fits within the viewport, accounting for padding */
-    max-height: calc(100vh - 40px); /* Same for height, with padding */
-    object-fit: contain; /* Ensure the image retains its aspect ratio */
+    height: 100vh;
 }
