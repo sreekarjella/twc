@@ -15,7 +15,7 @@ function Home() {
         }, 4000); // Change image every 3 seconds
 
         return () => clearInterval(interval); // Cleanup interval on unmount
-    }, [images.length]);
+    });
     return (
         <div className="centered-div" style={{ backgroundImage: `url(${images[currentImageIndex]})` }}>
         </div>
