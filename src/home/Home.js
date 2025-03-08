@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './Home.css'
+import { Col, Container, Row } from "react-bootstrap";
+import Header from "../header/Header";
 
 const images = [
     'images/1.png',  // Path relative to the public folder
@@ -12,13 +14,27 @@ function Home() {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-        }, 4000); // Change image every 3 seconds
+        }, 5000); // Change image every 3 seconds
 
         return () => clearInterval(interval); // Cleanup interval on unmount
     });
     return (
-        <div className="centered-div" style={{ backgroundImage: `url(${images[currentImageIndex]})` }}>
-        </div>
+        <Container>
+            <Row>
+                <Col>
+                    <Header/>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                <div className="centered-div" style={{ backgroundImage: `url(${images[currentImageIndex]})` }}>
+                </div>
+                </Col>
+            </Row>
+            <Row>
+                <Col>Routes placeholder</Col>
+            </Row>
+        </Container>
     );
 }
 

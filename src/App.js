@@ -14,13 +14,14 @@ function App() {
         <Helmet>
           <title>TWC</title>
         </Helmet>
-        <Header />
-        <Routes>
+        {/* <Header /> */}
+        {/* <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/architecture" element={<Architecture />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-        </Routes>
+        </Routes> */}
+        <Home/>
       </div>
     </Router>
   );
